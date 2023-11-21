@@ -66,7 +66,6 @@ const getWordle = () => {
     .then((response) => response.json())
     .then((response) => {
       wordle = response[Math.floor(Math.random() * 4)].toUpperCase();
-      console.log(wordle);
     })
     .catch((err) => console.error(err));
 };
@@ -84,7 +83,6 @@ const confirmWord = (answer) => {
   fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${answer}`)
     .then((response) => response.json())
     .then((response) => {
-      console.log(response);
       if (response.title) {
         displayMessage("Not in word list");
       } else {
